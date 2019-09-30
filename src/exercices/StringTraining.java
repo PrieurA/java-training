@@ -94,7 +94,7 @@ public class StringTraining {
      */
     public static String subString(String string, int begin, int end) {
         // https://howtodoinjava.com/java/string/java-string-substring-example/
-        return string.subString(begin,end);
+        return string.substring(begin,end);
     }
 
     /**
@@ -129,7 +129,7 @@ public class StringTraining {
      * @return the string where searched characters are replaced, eg: "wesw"
      */
     public static String replaceChar(String string, char search, char replace) {
-        return string.replaceChar(search,replace);
+        return string.replace(search, replace);
     }
 
     /**
@@ -139,7 +139,7 @@ public class StringTraining {
      * @return the string where searched substring are replaced, eg: "toast"
      */
     public static String replaceString(String string, String search, String replace) {
-        return.string,replaceString(search,replace);
+        return string.replace(search, replace);
     }
 
     /**
