@@ -23,7 +23,7 @@ public class StringTraining {
      * @return if origin string is equal to compare string
      */
     public static boolean equals(String origin, String compare) {
-       if (compare.equals(origin)) {
+        if (compare.equals(origin)) {
             return true;
         } else {
             return false;
@@ -35,7 +35,8 @@ public class StringTraining {
      * @return conversion of the character into String, eg: "t"
      */
     public static String charToString(char value) {
-        return charToString(value);
+        String str = String.valueOf(value);
+        return str;
     }
 
     /**
@@ -43,7 +44,8 @@ public class StringTraining {
      * @return convertion of the integer into String, eg: "3"
      */
     public static String intToString(int value) {
-        return intToString(value);
+        String str = Integer.toString(value);
+        return str;
     }
 
     /**
@@ -118,7 +120,7 @@ public class StringTraining {
                 count++;
             }
         }
-        
+
         return count ;
     }
 
