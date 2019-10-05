@@ -5,7 +5,6 @@ public class StringTraining {
      * @return a string that concatenates "Hello " and firstname, ie : "Hello Brandon"
      */
     public static String helloFirstname(String firstname) {
-        helloFirstname(firstname);
         return "Hello " + firstname;
     }
 
@@ -15,8 +14,7 @@ public class StringTraining {
      * @return a string with both word, ie : "testvalue"
      */
     public static String concatArgs(String first, String second) {
-        String str = concatArgs(first, second);
-        return str;
+        return first + second;
     }
 
     /**
@@ -25,8 +23,11 @@ public class StringTraining {
      * @return if origin string is equal to compare string
      */
     public static boolean equals(String origin, String compare) {
-       equals(origin, compare);
-       return false;
+        if (compare.equals(origin)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -34,7 +35,7 @@ public class StringTraining {
      * @return conversion of the character into String, eg: "t"
      */
     public static String charToString(char value) {
-        String str = charToString(value);
+        String str = String.valueOf(value);
         return str;
     }
 
@@ -43,7 +44,7 @@ public class StringTraining {
      * @return convertion of the integer into String, eg: "3"
      */
     public static String intToString(int value) {
-        String str = intToString(value);
+        String str = Integer.toString(value);
         return str;
     }
 
@@ -52,8 +53,7 @@ public class StringTraining {
      * @return string length, eg: 4
      */
     public static int length(String string) {
-        int str = length(string);
-        return str;
+        return string.length();
     }
 
     /**
@@ -61,8 +61,7 @@ public class StringTraining {
      * @return string in upper case, eg: "TEST"
      */
     public static String upper(String string) {
-        String str = upper(string);
-        return str;
+        return string.toUpperCase();
     }
 
     /**
@@ -70,8 +69,7 @@ public class StringTraining {
      * @return string in lower case, eg: "test"
      */
     public static String lower(String string) {
-        String str = lower(string);
-        return string;
+        return string.toLowerCase();
     }
 
     /**
@@ -79,8 +77,7 @@ public class StringTraining {
      * @return first character of the string, eg: 't'
      */
     public static char firstChar(String string) {
-        char str = firstChar(string);
-        return str;
+        return string.charAt(0);
     }
 
     /**
@@ -88,8 +85,7 @@ public class StringTraining {
      * @return last character of the string, eg: 'e'
      */
     public static char lastChar(String string) {
-        char str = lastChar(string);
-        return str;
+        return string.charAt(string.length()-1);
     }
 
     /**
@@ -100,8 +96,7 @@ public class StringTraining {
      */
     public static String subString(String string, int begin, int end) {
         // https://howtodoinjava.com/java/string/java-string-substring-example/
-        String str = subString(string,begin,end);
-        return str;
+        return string.substring(begin,end);
     }
 
     /**
@@ -109,7 +104,7 @@ public class StringTraining {
      * @return the string with the first character in upper case, eg: "Test"
      */
     public static String capitalize(String string) {
-        String str = capitalize(string);
+        String str =string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
         return str;
     }
 
@@ -119,8 +114,14 @@ public class StringTraining {
      * @return the number of character occurrences in string, eg: 2
      */
     public static int occurrences(String string, char search) {
-        int str = occurrences(string, search);
-        return str;
+        int count=0;
+        for (int i=0;i<string.length();i++){
+            if(string.charAt(i)==search){
+                count++;
+            }
+        }
+
+        return count ;
     }
 
     /**
@@ -130,8 +131,7 @@ public class StringTraining {
      * @return the string where searched characters are replaced, eg: "wesw"
      */
     public static String replaceChar(String string, char search, char replace) {
-        String str = replaceChar(string,search,replace);
-        return str;
+        return string.replace(search, replace);
     }
 
     /**
@@ -141,8 +141,7 @@ public class StringTraining {
      * @return the string where searched substring are replaced, eg: "toast"
      */
     public static String replaceString(String string, String search, String replace) {
-        String str = replaceString(string,search,replace);
-        return str;
+        return string.replace(search, replace);
     }
 
     /**
@@ -152,7 +151,7 @@ public class StringTraining {
      */
     public static String[] split(String string, String delimiter) {
         // https://howtodoinjava.com/java/string/java-string-split-example/
-        String[] str =  split(string, delimiter);
+        String[] str = string.split(delimiter);
         return str;
     }
 
@@ -163,7 +162,7 @@ public class StringTraining {
      */
     public static String join(String[] strings, String delimiter) {
         // https://howtodoinjava.com/java8/java-8-join-string-array-example/
-        String str = join(strings, delimiter);
+        String str = String.join(delimiter, strings);
         return str;
     }
 }

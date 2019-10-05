@@ -1,3 +1,6 @@
+import java.util.Arrays;
+
+
 public class ArrayTraining {
 
     /**
@@ -5,8 +8,7 @@ public class ArrayTraining {
      * @return an empty int array of size n, eg: {0, 0, 0}
      */
     public int[] emptyIntArray(int n) {
-        emptyIntArray(n);
-        return null;
+        return new int[n];
     }
 
     /**
@@ -14,8 +16,7 @@ public class ArrayTraining {
      * @return an empty String array of size n, eg: {null, null}
      */
     public String[] emptyStringArray(int n) {
-        emptyStringArray(n);
-        return null;
+        return new String[n];
     }
 
     /**
@@ -25,8 +26,7 @@ public class ArrayTraining {
      * @return an int array with a, b and c values, eg: {3, 2, 1}
      */
     public int[] intArray(int a, int b, int c) {
-        intArray(a, b, c);
-        return null;
+        return new int[] {a, b, c};
     }
 
     /**
@@ -37,8 +37,7 @@ public class ArrayTraining {
      * eg: {"test", sample", "value"}
      */
     public String[] stringArray(String a, String b, String c) {
-        stringArray(a, b, c);
-        return null;
+        return new String[] {a, b, c};
     }
 
     /**
@@ -46,8 +45,7 @@ public class ArrayTraining {
      * @return length of the array, eg: 1
      */
     public int length(int[] array) {
-        length(array);
-        return 0;
+        return array.length;
     }
 
     /**
@@ -55,8 +53,7 @@ public class ArrayTraining {
      * @return first value of the array, eg: 3
      */
     public int firstValue(int[] array) {
-        firstValue(array);
-        return 0;
+        return array[0];
     }
 
     /**
@@ -64,8 +61,7 @@ public class ArrayTraining {
      * @return last value of the array, eg: 1
      */
     public int lastValue(int[] array) {
-        lastValue(array);
-        return 0;
+        return array[array.length-1];
     }
 
     /**
@@ -74,8 +70,7 @@ public class ArrayTraining {
      * @return value of the array at position, eg: 2
      */
     public int valueAtPosition(int[] array, int position) {
-        valueAtPosition(array,position);
-        return 0;
+        return array[position];
     }
 
     /**
@@ -85,8 +80,8 @@ public class ArrayTraining {
      * @return the array with the value replaced at position, eg: {3, 4, 5}
      */
     public int[] replace(int[] array, int value, int position) {
-        replace(array, value, position);
-        return null;
+        array[position] = value;
+        return array;
     }
 
     /**
@@ -94,8 +89,16 @@ public class ArrayTraining {
      * @return sum of values of the array, eg: 6
      */
     public int sum(int[] array) {
-        sum(array);
-        return 0;
+        int sum = 0;
+        for(int i = 0; i < array.length; i++){
+            if (array[i] < 0 ){
+                array[i] = 0;
+            }
+            else {
+                sum = sum + array[i];
+            }
+        }
+        return sum;
     }
 
     /**
@@ -104,8 +107,16 @@ public class ArrayTraining {
      * @return if array contains searched value, eg: true
      */
     public boolean contains(int[] array, int search) {
-        contains(array, search);
-        return false;
+        boolean result = false;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == search) {
+                result = true;
+                break;
+            }else {
+                result = false;
+            }
+        }
+        return result;
     }
 
     /**
@@ -113,8 +124,10 @@ public class ArrayTraining {
      * @return array where all words are capitalized, eg: {"Sample", "Value"}
      */
     public String[] capitalize(String[] array) {
-        capitalize(array);
-        return null;
+        for(int i = 0; i < array.length; i++) {
+            array[i] = Character.toString(array[i].charAt(0)).toUpperCase()+array[i].substring(1);
+        }
+        return array;
     }
 
     /**
@@ -124,8 +137,15 @@ public class ArrayTraining {
      * are equals, eg: false
      */
     public boolean equals(int[] first, int[] second) {
-        equals(first, second);
-        return false;
+        boolean result = true;
+        for (int i = 0; i < first.length; i++) {
+            for (int j = 0; j < second.length; j++) {
+                if(first[i] == second[j]) {
+                    return result;
+                }
+            }
+        }
+        return result;
     }
 
     /**
@@ -133,8 +153,14 @@ public class ArrayTraining {
      * @return array with reversed values, eg: {3, 2, 1}
      */
     public int[] reverse(int[] array) {
-        reverse(array);
-        return null;
+
+        for(int i = 0; i < array.length / 2; i++) {
+            int temp = array[i];
+            array[i] = array[array.length - i - 1];
+            array[array.length - i - 1] = temp;
+        }
+
+        return array;
     }
 
     /**
@@ -144,7 +170,18 @@ public class ArrayTraining {
      * eg: {1, 2, 3, 4, 5}
      */
     public int[] concat(int[] first, int[] second) {
-        concat(first, second);
-        return null;
+
+        int length = first.length + second.length;
+        int[] result = new int[length];
+        int position = 0;
+        for (int element : first) {
+            result[position] = element;
+            position++;
+        }
+        for (int element : second) {
+            result[position] = element;
+            position++;
+        }
+        return result;
     }
 }
